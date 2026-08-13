@@ -1,0 +1,100 @@
+{
+  "name": "BUSHRA ASAD",
+  "headline": "Software Engineer & UI/UX Designer",
+  "shortIntro": "Software Engineering student and UI/UX designer passionate about creating intuitive digital experiences and combining technology, design, and AI.",
+  "aboutParagraphs": [
+    "I'm currently a Software Engineering student with a growing specialty in UI/UX design. I care about the moment a complicated system becomes something a person can read at a glance.",
+    "My background spans UX research, interface design in Figma, and hands-on software engineering, which means I design with an understanding of what's actually buildable, and build with an eye for what's actually usable.",
+    "I'm also building an AI-assisted workflow into every stage of my process: research synthesis, wireframing, content drafting, and even this portfolio's own personal AI agent, which you can talk to below."
+  ],
+  "skills": {
+    "UI/UX Design": ["Figma", "UX Research", "User Flows", "Information Architecture", "Prototyping"],
+    "Software Engineering": ["C++", "Object-Oriented Programming (OOP)", "Data Structures", "Databases"],
+    "AI": ["ChatGPT", "Claude", "Gemini"]
+  },
+  "projects": [
+    {
+      "name": "University Portal — Academic Dashboard",
+      "description": "A case study redesigning a university student portal's academic profile and dashboard screen, grounded in real user research rather than assumption.",
+      "role": "UX Researcher & UI Designer",
+      "tools": ["Figma", "User interviews", "Competitor analysis"],
+      "problem": "Existing student portals (benchmarked against Canvas, Moodle, and Blackboard, including a review of Canvas app store feedback) buried the information students actually needed under dense, cluttered navigation.",
+      "solution": "Conducted 4 user interviews and a research synthesis, then used the findings to cut roughly 40% of the original UI elements — defending each specific cut against the research rather than trimming arbitrarily.",
+      "outcome": "A leaner academic dashboard concept where every remaining element is tied back to a stated user need. [Add final metrics or feedback if available.]",
+      "link": "https://www.figma.com/community/file/1666098057370905255/pixel-art-theme",
+      "featured": true
+    },
+    {
+      "name": "Storyverse",
+      "description": "A UI/UX design project focused on creating an engaging and user-friendly digital experience for discovering and exploring stories.",
+      "role": "UI/UX Designer",
+      "tools": ["Figma", "UX Research", "User Flows", "Information Architecture", "Prototyping"],
+      "problem": "Users needed a simple and engaging way to discover, explore, and interact with stories.",
+      "solution":"Designed an intuitive interface with clear navigation, structured content, and an engaging user experience.",
+      "outcome": "Created a polished high-fidelity prototype that demonstrates a clear and user-friendly story discovery experience.",
+      "link": "https://www.figma.com/community/file/1668254718168662603/storyverse-game-discovery-app-community-before",
+      "featured": true
+    }
+  ],
+  "aiToolkit": [
+    {
+      "tool": "Claude",
+      "usedFor": "Building this portfolio site itself — from component structure to the personal AI agent below — plus research synthesis and iterative design/copy feedback.",
+      "workflowFit": "Build and iteration stage: turning a design brief into working code, and turning research notes into structured takeaways.",
+      "benefit": "Lets me move from a rough idea to a working, reviewable draft quickly, so more of my time goes into judging and refining the result rather than producing the first pass."
+    },
+   {
+     "tool": "ChatGPT",
+     "usedFor": "UX research, brainstorming, writing prompts, generating ideas, refining design decisions, and solving software engineering problems",
+      "workflowFit": "Used throughout the design and development process to brainstorm ideas, organize research, improve UX content, and troubleshoot technical issues",
+     "benefit": "Helps speed up research and ideation, improve problem-solving, generate creative solutions, and increase productivity"
+}
+  ],
+  "experience": [
+    {
+      "company": "Decode Labs",
+      "role": "UI/UX Design Intern",
+      "dates": "[may 2026 – june 2026]",
+      "responsibilities": [
+        "[Designed responsive web interfaces in Figma following UX principles.",
+      "Created empathy maps, user personas, journey maps, and low/high-fidelity wireframes.",
+      "Worked on user interface design and prototyping."]
+      
+    },
+    {
+      "company": "FlyRank",
+      "role": "UI/UX Design Intern",
+      "dates": "[1-july-2026 – 12-August-2026]",
+      "responsibilities": [
+        ["Completed a 6-week UI/UX Design internship focused on user-centered design.",
+      "Conducted UX research and created user flows, information architecture, wireframes, and prototypes.",
+      "Designed and documented UI/UX solutions using Figma."]
+      ]
+    }
+  ],
+  "aiFluency": {
+    "summary": "This site is itself a demonstration of an AI-assisted workflow: research and structure drafted with AI support, a personal AI agent built and shipped as a real feature, and every claim on the page checked against what I actually provided so nothing here is invented.",
+    "points": [
+      "AI tools used: Claude, ChatGPT, and Gemini, each for a different stage of the workflow.",
+      "How I use them: research synthesis, drafting and iteration, and — for Claude specifically — building this site and its AI agent.",
+      "What I created with them: this portfolio site, including its component structure, copy drafts, and the chat agent below.",
+      "My AI-assisted workflow: research → synthesis → draft → build → critique, with AI involved at each stage but final judgment mine.",
+      "My personal AI agent: a chat interface, further down this page, that answers visitor questions using only the information on this site."
+    ]
+  },
+  "contact": {
+    "email": "bushraasad766@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/bushra-asad/",
+    "github": "https://github.com/11bushraasad",
+    "resume": "[Add a link to your resume PDF]",
+    "ctaText": "I'm open to UI/UX and software engineering opportunities. Reach out if you'd like to collaborate!"
+  },
+  "suggestedQuestions": [
+    "Who is Bushra?",
+    "What are her skills?",
+    "Does she know UI/UX?",
+    "What projects has she worked on?",
+    "Where has she interned?",
+    "What AI tools does she use?"
+  ]
+}

@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: #120C1E;
+  color: #F5EFFF;
+  font-family: 'Inter', sans-serif;
+  image-rendering: pixelated;
+}
+
+::selection {
+  background-color: #FF5FB4;
+  color: #120C1E;
+}
+
+:focus-visible {
+  outline: 3px solid #FF5FB4;
+  outline-offset: 3px;
+}
+
+/* Starfield backdrop — small pixel dots, subtle, not distracting */
+.pixel-sky {
+  background-image:
+    radial-gradient(#FF5FB4 1px, transparent 1px),
+    radial-gradient(#B9A6FF 1px, transparent 1px);
+  background-size: 90px 90px, 130px 130px;
+  background-position: 0 0, 45px 65px;
+  background-repeat: repeat;
+  opacity: 0.35;
+}
+
+/* Classic pixel-art hard border + offset shadow, no border-radius, no blur */
+.pixel-border {
+  border: 3px solid #F5EFFF;
+  box-shadow: 4px 4px 0 0 #120C1E, 0 0 0 3px #120C1E;
+  border-radius: 0;
+}
+
+.pixel-card {
+  border: 3px solid #3A2A55;
+  background: #1D1530;
+  box-shadow: 6px 6px 0 0 #120C1E;
+  border-radius: 0;
+  transition: transform 0.15s steps(3), box-shadow 0.15s steps(3);
+}
+.pixel-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 8px 8px 0 0 #FF5FB4;
+  border-color: #FF5FB4;
+}
+
+.pixel-btn {
+  font-family: 'Press Start 2P', monospace;
+  border: 3px solid #120C1E;
+  border-radius: 0;
+  box-shadow: 4px 4px 0 0 #120C1E;
+  transition: transform 0.1s steps(2), box-shadow 0.1s steps(2);
+  display: inline-block;
+}
+.pixel-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 0 #120C1E;
+}
+.pixel-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 0 #120C1E;
+}
+
+.pixel-tag {
+  font-family: 'JetBrains Mono', monospace;
+  border: 2px solid #3A2A55;
+  border-radius: 0;
+  background: #120C1E;
+}
+
+.eyebrow {
+  font-family: 'Press Start 2P', monospace;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  color: #FF5FB4;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+.pixel-sparkle {
+  animation: twinkle 1.6s steps(2) infinite;
+}
