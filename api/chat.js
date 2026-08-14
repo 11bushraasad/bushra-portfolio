@@ -42,11 +42,14 @@ export default async function handler(req, res) {
       });
     }
 
-    if (!process.env.ANTHROPIC_API_KEY) {
-      return res.status(500).json({
-        error: "Server is missing ANTHROPIC_API_KEY",
-      });
-    }
+   if (!process.env.ANTHROPIC_API_KEY) {
+  return res.status(500).json({
+    error: "API key is missing",
+    envKeys: Object.keys(process.env).filter(
+      (key) => key.includes("ANTHROPIC")
+    ),
+  });
+}
 
     const anthropicMessages = messages
       .filter(
