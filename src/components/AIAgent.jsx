@@ -40,7 +40,7 @@ export default function AIAgent({ profile }) {
 
       <div className="pixel-border bg-ink-soft overflow-hidden">
 
-        {/* Title bar */}
+        {/* AGENT HEADER */}
         <div className="flex items-center justify-between bg-magenta px-4 py-2 border-b-[3px] border-paper">
 
           <span className="font-pixel text-[9px] text-ink flex items-center gap-2">
@@ -61,92 +61,71 @@ export default function AIAgent({ profile }) {
         </div>
 
 
-        {/* Questions */}
+        {/* QUESTION BUTTONS */}
         <div className="flex flex-wrap gap-2 p-4 border-b-2 border-ink-line">
 
           {profile.suggestedQuestions.map((q) => (
-
             <button
               key={q}
               onClick={() => setSelectedQuestion(q)}
               className={`pixel-tag text-xs px-3 py-1.5 transition-colors ${
                 selectedQuestion === q
-                  ? 'text-pink border-pink bg-ink-soft'
+                  ? 'text-pink border-pink'
                   : 'text-lavender hover:text-pink hover:border-pink'
               }`}
             >
               {q}
             </button>
-
           ))}
 
         </div>
 
 
-        {/* Question + Answer */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 p-6 min-h-[330px]">
+        {/* CHAT DISPLAY */}
+        <div className="min-h-[300px] px-5 py-6">
 
+          {!selectedQuestion ? (
 
-          {/* LEFT — ANSWER */}
-          <div className="flex flex-col">
-
-            <div className="font-pixel text-[10px] text-pink mb-3">
-              ANSWER
+            <div className="border-2 border-ink-line bg-ink px-4 py-3">
+              <p className="text-paper-muted text-sm leading-relaxed">
+                [ click a question above to learn about Bushra ]
+              </p>
             </div>
 
-            <div className="flex-1 bg-ink border-2 border-ink-line p-5">
+          ) : (
 
-              {!selectedQuestion ? (
+            <div className="flex flex-col gap-5">
 
-                <div className="h-full flex items-center justify-center text-center">
-                  <p className="text-paper-muted/60 text-sm font-mono">
-                    [ select a question above ]
+              {/* ANSWER — LEFT */}
+              <div className="flex justify-start">
+
+                <div className="max-w-[70%] bg-ink border-2 border-ink-line px-4 py-3">
+
+                  <p className="text-paper-muted text-sm leading-relaxed">
+                    {answers[selectedQuestion]}
                   </p>
+
                 </div>
 
-              ) : (
-
-                <p className="text-paper-muted text-sm leading-relaxed">
-                  {answers[selectedQuestion]}
-                </p>
-
-              )}
-
-            </div>
-
-          </div>
+              </div>
 
 
-          {/* RIGHT — QUESTION */}
-          <div className="flex flex-col">
+              {/* QUESTION — RIGHT */}
+              <div className="flex justify-end">
 
-            <div className="font-pixel text-[10px] text-pink mb-3">
-              QUESTION
-            </div>
+                <div className="max-w-[55%] bg-pink border-2 border-ink px-4 py-3">
 
-            <div className="flex-1 bg-ink-soft border-2 border-ink-line p-5">
-
-              {!selectedQuestion ? (
-
-                <div className="h-full flex items-center justify-center text-center">
-                  <p className="text-paper-muted/60 text-sm font-mono">
-                    [ choose a question ]
-                  </p>
-                </div>
-
-              ) : (
-
-                <div className="h-full flex items-center">
-                  <p className="font-pixel text-sm text-lavender leading-relaxed">
+                  <p className="font-pixel text-[10px] text-ink leading-relaxed">
                     {selectedQuestion}
                   </p>
+
                 </div>
 
-              )}
+              </div>
 
             </div>
 
-          </div>
+          )}
 
         </div>
 
