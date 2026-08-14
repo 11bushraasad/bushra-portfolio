@@ -3,8 +3,6 @@ import Section from './ui/Section.jsx'
 import PixelIcon from './ui/PixelIcon.jsx'
 
 export default function AIAgent({ profile }) {
-  const [selectedQuestion, setSelectedQuestion] = useState(null)
-
   const answers = {
     "Who is Bushra?":
       "Bushra Asad is a Software Engineering student and UI/UX Designer from Pakistan. She is passionate about software development, user experience, design, technology, and AI.",
@@ -25,6 +23,18 @@ export default function AIAgent({ profile }) {
       "Bushra uses AI tools such as Claude, Gemini, and other AI-powered tools to support research, design, content creation, prototyping, and her development workflow."
   }
 
+  const [selectedQuestion, setSelectedQuestion] = useState('')
+  const [selectedAnswer, setSelectedAnswer] = useState(
+    '[ click a question above to learn about Bushra ]'
+  )
+
+  function handleQuestion(question) {
+    setSelectedQuestion(question)
+    setSelectedAnswer(
+      answers[question] || 'Please choose one of the questions above.'
+    )
+  }
+
   return (
     <Section
       id="agent"
@@ -32,7 +42,6 @@ export default function AIAgent({ profile }) {
       label="Interactive"
       title="MEET MY AI AGENT"
     >
-
       <p className="text-paper-muted leading-relaxed max-w-2xl mb-8">
         Click a question below to learn more about Bushra, her skills,
         projects, experience, and AI workflow.
@@ -40,9 +49,8 @@ export default function AIAgent({ profile }) {
 
       <div className="pixel-border bg-ink-soft overflow-hidden">
 
-        {/* AGENT HEADER */}
+        {/* AGENT WINDOW HEADER */}
         <div className="flex items-center justify-between bg-magenta px-4 py-2 border-b-[3px] border-paper">
-
           <span className="font-pixel text-[9px] text-ink flex items-center gap-2">
             <PixelIcon
               type="sparkle"
@@ -57,80 +65,53 @@ export default function AIAgent({ profile }) {
             <span className="w-2.5 h-2.5 bg-ink" />
             <span className="w-2.5 h-2.5 bg-pink" />
           </div>
-
         </div>
 
-
-        {/* QUESTION BUTTONS */}
+        {/* QUESTIONS */}
         <div className="flex flex-wrap gap-2 p-4 border-b-2 border-ink-line">
-
-          {profile.suggestedQuestions.map((q) => (
+          {profile.suggestedQuestions.map((question) => (
             <button
-              key={q}
-              onClick={() => setSelectedQuestion(q)}
+              key={question}
+              onClick={() => handleQuestion(question)}
               className={`pixel-tag text-xs px-3 py-1.5 transition-colors ${
-                selectedQuestion === q
+                selectedQuestion === question
                   ? 'text-pink border-pink'
                   : 'text-lavender hover:text-pink hover:border-pink'
               }`}
             >
-              {q}
+              {question}
             </button>
           ))}
-
         </div>
 
+        {/* RESPONSE AREA */}
+        <div className="relative min-h-[420px] p-6">
 
-        {/* CHAT DISPLAY */}
-        <div className="min-h-[300px] px-5 py-6">
+          {/* ANSWER — LEFT */}
+          <div className="max-w-[58%]">
 
-          {!selectedQuestion ? (
-
-            <div className="border-2 border-ink-line bg-ink px-4 py-3">
-              <p className="text-paper-muted text-sm leading-relaxed">
-                [ click a question above to learn about Bushra ]
-              </p>
+            <div
+              className="bg-ink border-2 border-ink-line text-paper-muted px-5 py-4 text-sm leading-relaxed"
+            >
+              {selectedAnswer}
             </div>
 
-          ) : (
+          </div>
 
-            <div className="flex flex-col gap-5">
-
-              {/* ANSWER — LEFT */}
-              <div className="flex justify-start">
-
-                <div className="max-w-[70%] bg-ink border-2 border-ink-line px-4 py-3">
-
-                  <p className="text-paper-muted text-sm leading-relaxed">
-                    {answers[selectedQuestion]}
-                  </p>
-
-                </div>
-
+          {/* QUESTION — RIGHT */}
+          {selectedQuestion && (
+            <div className="absolute right-6 top-24 max-w-[42%]">
+              <div
+                className="bg-pink text-ink border-2 border-ink px-5 py-4 text-sm leading-relaxed"
+              >
+                {selectedQuestion}
               </div>
-
-
-              {/* QUESTION — RIGHT */}
-              <div className="flex justify-end">
-
-                <div className="max-w-[55%] bg-pink border-2 border-ink px-4 py-3">
-
-                  <p className="font-pixel text-[10px] text-ink leading-relaxed">
-                    {selectedQuestion}
-                  </p>
-
-                </div>
-
-              </div>
-
             </div>
-
           )}
 
         </div>
 
       </div>
-
     </Section>
   )
 }
