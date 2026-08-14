@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import Section from './ui/Section.jsx'
 import PixelIcon from './ui/PixelIcon.jsx'
 
 export default function AIAgent({ profile }) {
+  const [selectedQuestion, setSelectedQuestion] = useState(null)
+
   const answers = {
     "Who is Bushra?":
       "Bushra Asad is a Software Engineering student and UI/UX Designer from Pakistan. She is passionate about software development, user experience, design, technology, and AI.",
@@ -23,7 +26,12 @@ export default function AIAgent({ profile }) {
   }
 
   return (
-    <Section id="agent" index="06" label="Interactive" title="MEET MY AI AGENT">
+    <Section
+      id="agent"
+      index="06"
+      label="Interactive"
+      title="MEET MY AI AGENT"
+    >
 
       <p className="text-paper-muted leading-relaxed max-w-2xl mb-8">
         Click a question below to learn more about Bushra, her skills,
@@ -34,8 +42,13 @@ export default function AIAgent({ profile }) {
 
         {/* Title bar */}
         <div className="flex items-center justify-between bg-magenta px-4 py-2 border-b-[3px] border-paper">
+
           <span className="font-pixel text-[9px] text-ink flex items-center gap-2">
-            <PixelIcon type="sparkle" size={10} color="#120C1E" />
+            <PixelIcon
+              type="sparkle"
+              size={10}
+              color="#120C1E"
+            />
             AGENT.EXE
           </span>
 
@@ -44,34 +57,95 @@ export default function AIAgent({ profile }) {
             <span className="w-2.5 h-2.5 bg-ink" />
             <span className="w-2.5 h-2.5 bg-pink" />
           </div>
+
         </div>
+
 
         {/* Questions */}
         <div className="flex flex-wrap gap-2 p-4 border-b-2 border-ink-line">
+
           {profile.suggestedQuestions.map((q) => (
+
             <button
               key={q}
-              onClick={() => {
-                const answerBox = document.getElementById('agent-answer')
-                answerBox.textContent =
-                  answers[q] ||
-                  "Please choose one of the questions above."
-              }}
-              className="pixel-tag text-xs text-lavender px-3 py-1.5 hover:text-pink hover:border-pink transition-colors"
+              onClick={() => setSelectedQuestion(q)}
+              className={`pixel-tag text-xs px-3 py-1.5 transition-colors ${
+                selectedQuestion === q
+                  ? 'text-pink border-pink bg-ink-soft'
+                  : 'text-lavender hover:text-pink hover:border-pink'
+              }`}
             >
               {q}
             </button>
+
           ))}
+
         </div>
 
-        {/* Answer */}
-        <div className="h-80 md:h-96 overflow-y-auto px-4 py-4">
 
-          <div
-            id="agent-answer"
-            className="bg-ink border-2 border-ink-line text-paper px-4 py-3 text-sm leading-relaxed"
-          >
-            [ click a question above to learn about Bushra ]
+        {/* Question + Answer */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 p-6 min-h-[330px]">
+
+
+          {/* LEFT — ANSWER */}
+          <div className="flex flex-col">
+
+            <div className="font-pixel text-[10px] text-pink mb-3">
+              ANSWER
+            </div>
+
+            <div className="flex-1 bg-ink border-2 border-ink-line p-5">
+
+              {!selectedQuestion ? (
+
+                <div className="h-full flex items-center justify-center text-center">
+                  <p className="text-paper-muted/60 text-sm font-mono">
+                    [ select a question above ]
+                  </p>
+                </div>
+
+              ) : (
+
+                <p className="text-paper-muted text-sm leading-relaxed">
+                  {answers[selectedQuestion]}
+                </p>
+
+              )}
+
+            </div>
+
+          </div>
+
+
+          {/* RIGHT — QUESTION */}
+          <div className="flex flex-col">
+
+            <div className="font-pixel text-[10px] text-pink mb-3">
+              QUESTION
+            </div>
+
+            <div className="flex-1 bg-ink-soft border-2 border-ink-line p-5">
+
+              {!selectedQuestion ? (
+
+                <div className="h-full flex items-center justify-center text-center">
+                  <p className="text-paper-muted/60 text-sm font-mono">
+                    [ choose a question ]
+                  </p>
+                </div>
+
+              ) : (
+
+                <div className="h-full flex items-center">
+                  <p className="font-pixel text-sm text-lavender leading-relaxed">
+                    {selectedQuestion}
+                  </p>
+                </div>
+
+              )}
+
+            </div>
+
           </div>
 
         </div>
