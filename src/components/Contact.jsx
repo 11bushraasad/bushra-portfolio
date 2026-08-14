@@ -12,6 +12,7 @@ function ContactLink({ href, label, isPlaceholder }) {
       </span>
     )
   }
+
   return (
     <a
       href={href}
@@ -26,30 +27,64 @@ function ContactLink({ href, label, isPlaceholder }) {
 
 export default function Contact({ profile }) {
   const { contact } = profile
+
   const linkedinPlaceholder = contact.linkedin.startsWith('[')
   const githubPlaceholder = contact.github.startsWith('[')
 
   return (
     <Section id="contact" index="08" label="Contact" title="LET'S TALK!">
-      <div className="pixel-border bg-ink-soft p-8 max-w-2xl">
+
+      <div className="pixel-border bg-ink-soft p-6 md:p-8 max-w-2xl w-full">
+
         <div className="flex items-center gap-2 mb-4">
-          <PixelIcon type="heart" size={16} color="#FF5FB4" className="pixel-sparkle" />
-          <PixelIcon type="sparkle" size={12} color="#B9A6FF" className="pixel-sparkle" />
+          <PixelIcon
+            type="heart"
+            size={16}
+            color="#FF5FB4"
+            className="pixel-sparkle"
+          />
+
+          <PixelIcon
+            type="sparkle"
+            size={12}
+            color="#B9A6FF"
+            className="pixel-sparkle"
+          />
         </div>
 
-        <p className="text-paper-muted leading-relaxed mb-8">{contact.ctaText}</p>
+        <p className="text-paper-muted leading-relaxed mb-8">
+          {contact.ctaText}
+        </p>
 
-        <div className="flex flex-col sm:flex-row gap-4">
+        {/* Contact buttons */}
+        <div className="flex flex-wrap items-center gap-3 w-full">
+
+          {/* Email */}
           <a
             href={`mailto:${contact.email}`}
-            className="pixel-btn bg-pink text-ink text-[11px] px-5 py-3.5 hover:bg-pink-soft text-center"
+            className="pixel-btn bg-pink text-ink text-[11px] px-5 py-3.5 hover:bg-pink-soft text-center max-w-full break-all"
           >
             {contact.email}
           </a>
-          <ContactLink href={contact.linkedin} label="LINKEDIN" isPlaceholder={linkedinPlaceholder} />
-          <ContactLink href={contact.github} label="GITHUB" isPlaceholder={githubPlaceholder} />
+
+          {/* LinkedIn */}
+          <ContactLink
+            href={contact.linkedin}
+            label="LINKEDIN"
+            isPlaceholder={linkedinPlaceholder}
+          />
+
+          {/* GitHub */}
+          <ContactLink
+            href={contact.github}
+            label="GITHUB"
+            isPlaceholder={githubPlaceholder}
+          />
+
         </div>
+
       </div>
+
     </Section>
   )
 }
