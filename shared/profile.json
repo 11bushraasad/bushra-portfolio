@@ -1,18 +1,37 @@
 {
   "name": "BUSHRA ASAD",
   "headline": "Software Engineer & UI/UX Designer",
-  "shortIntro": "Software Engineering student and UI/UX designer passionate about creating intuitive digital experiences and combining technology, design, and AI.",
+  "shortIntro": "Software Engineering student passionate about software development, creating intuitive user experiences, and combining technology, design, and AI to solve real-world problems.",
   "aboutParagraphs": [
-    "I'm currently a Software Engineering student with a growing specialty in UI/UX design. I care about the moment a complicated system becomes something a person can read at a glance.",
-    "My background spans UX research, interface design in Figma, and hands-on software engineering, which means I design with an understanding of what's actually buildable, and build with an eye for what's actually usable.",
-    "I'm also building an AI-assisted workflow into every stage of my process: research synthesis, wireframing, content drafting, and even this portfolio's own personal AI agent, which you can talk to below."
+   "I'm a Software Engineering student passionate about software development, UI/UX design, and creating intuitive, user-friendly experiences. I enjoy turning complex problems into solutions that are clear, accessible, and easy to use.",
+  "My experience spans UX research, user interviews, wireframing, prototyping, interface design in Figma, and hands-on software development. This combination helps me approach design with an understanding of technical feasibility and approach development with a focus on usability.",
+  "I'm also exploring AI-powered tools and workflows to improve research, design, and development. From organizing research insights to experimenting with AI-assisted solutions, I enjoy finding new ways to combine creativity and technology to solve real-world problems."
   ],
   "skills": {
-    "UI/UX Design": ["Figma", "UX Research", "User Flows", "Information Architecture", "Prototyping"],
+    "UI/UX Design": [ "web development","Figma", "UX Research", "User Flows", "Information Architecture", "Prototyping"],
     "Software Engineering": ["C++", "Object-Oriented Programming (OOP)", "Data Structures", "Databases"],
-    "AI": ["ChatGPT", "Claude", "Gemini"]
+    "AI": [ "bolt","ChatGPT", "Claude", "Gemini"]
   },
   "projects": [
+    
+    {
+      "name": "CampusPulse — University Events & Societies Platform",
+      "description": "A university-focused platform designed to bring student societies, campus events, and announcements together in one accessible place.",
+      "role": "UI/UX Designer & Web Developer",
+      "tools": [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Supabase",
+        "PostgreSQL"
+      ],
+      "problem": "University event information and society announcements can be scattered across different channels, making it difficult for students to stay informed about campus activities.",
+      "solution": "Designed and developed a centralized campus platform concept for discovering university events, exploring society activities, and accessing important announcements in one place.",
+      "outcome": "A university-focused web project that aims to make campus events and society information easier to discover and access.",
+      "link": "https://campuspulse-universi-fl3r.bolt.host/",
+      "featured": true
+    }
+
     {
       "name": "University Portal — Academic Dashboard",
       "description": "A case study redesigning a university student portal's academic profile and dashboard screen, grounded in real user research rather than assumption.",
